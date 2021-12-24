@@ -5,7 +5,7 @@ portable Common Lisp. The `amb` operator implements a system which is capable of
 automatically searching for a set of values for variables (henceforth
 called *ambiguous variables*) for which a set of constraints is satisfied.
 
-The `amb` operator and its example use is described in detail in
+The `amb` operator and its example use are described in detail in
 [Structure and Interpretation of Computer Programs Chapter 4.3 (Nondeterministic
 Computing)](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-28.html).
 
