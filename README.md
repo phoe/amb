@@ -10,7 +10,7 @@ example use are described in detail in
 [Structure and Interpretation of Computer Programs Chapter 4.3 (Nondeterministic
 Computing)](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-28.html).
 
-See the [manual](MANUAL.md) and the [SICP test cases](test-sicp.lisp) for
+See the [manual](doc/MANUAL.md) and the [SICP test cases](t/test-sicp.lisp) for
 examples.
 
 ## API
