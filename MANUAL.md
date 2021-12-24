@@ -29,8 +29,7 @@ AMB> (flet ((foo (x) (constrain (evenp x)))
 
 It is obviously possible that `amb` does not find a successful match if
 the constraints it is given are impossible to meet with the given list of
-values. In such a case, this implementation of `amb` by default signals a
-warning and returns `nil`.
+values. In such a case, by default, `amb` signals a warning and returns `nil`.
 
 ```lisp
 AMB> (flet ((foo (x) (constrain (evenp x)))
