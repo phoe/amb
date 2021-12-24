@@ -11,7 +11,6 @@ AMB> (amb ((x '(1 2 3 4 5))
        (constrain (> x 3))
        (constrain (= y (* x 20)))
        (list x y))
-
 (4 80)
 ```
 
@@ -60,7 +59,7 @@ AMB> (amb ((x (iota 100) :shufflep t)
            (z (iota 100) :shufflep t))
        (constrain (< x y z))
        (list x y z))
-(13 87 98)
+(13 87 98) ; will likely be different on the next run
 ```
 
 The `amb` operator can be programmed to modify its behavior for signaling
@@ -158,13 +157,13 @@ triples under 100 with the following code:
 ```lisp
 AMB> (let ((integers (a:iota 100 :start 1))
            result)
-       (amb:amb ((x integers)
-                 (y integers)
-                 (z integers)
-                 (:signalp nil))
-         (amb:constrain (< x y z))
-         (amb:constrain (= 1 (gcd x y z)))
-         (amb:constrain (= (+ (* x x) (* y y)) (* z z)))
+       (amb ((x integers)
+             (y integers)
+             (z integers)
+             (:signalp nil))
+         (constrain (< x y z))
+         (constrain (= 1 (gcd x y z)))
+         (constrain (= (+ (* x x) (* y y)) (* z z)))
          (push (list x y z) result)
          nil)
        (nreverse result))
