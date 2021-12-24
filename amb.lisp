@@ -46,8 +46,9 @@
            (let ((new-body (generate-body rest body stack signalp)))
              (generate-binding binding new-body stack signalp))))
         (body `(locally ,@body))
-        (signalp `(unless (member ',stack *started-ambs*)
-                    (,signalp 'amb-failure :stack ',stack)))
+        (signalp `(if (member ',stack *started-ambs*)
+                      (throw ',stack nil)
+                      (,signalp 'amb-failure :stack ',stack)))
         (t `(progn))))
 
 (defun parse-amb (bindings-and-options body)

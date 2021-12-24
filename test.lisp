@@ -130,7 +130,7 @@
   (let ((fallthroughp nil))
     (amb:amb ((:signalp nil)
               (x '(1 2 3 4 5)))
-      (amb:constrain (= x 0))
+      (amb:amb ())
       (setf fallthroughp t))
     (false fallthroughp)))
 

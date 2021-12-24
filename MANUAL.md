@@ -150,3 +150,26 @@ multiple stacks for them:
 AMB> (outer2 '(1 2 3))
 (1 10)
 ```
+
+A non-signaling `amb` whose body always returns `nil` can be used for iterating
+across all matches. We can use such a construct to generate all core Pythagorean
+triples under 100 with the following code:
+
+```lisp
+AMB> (let ((integers (a:iota 100 :start 1))
+           result)
+       (amb:amb ((x integers)
+                 (y integers)
+                 (z integers)
+                 (:signalp nil))
+         (amb:constrain (< x y z))
+         (amb:constrain (= 1 (gcd x y z)))
+         (amb:constrain (= (+ (* x x) (* y y)) (* z z)))
+         (push (list x y z) result)
+         nil)
+       (nreverse result))
+((3 4 5) (5 12 13) (7 24 25) (8 15 17)
+ (9 40 41) (11 60 61) (12 35 37) (13 84 85)
+ (16 63 65) (20 21 29) (28 45 53) (33 56 65)
+ (36 77 85) (39 80 89) (48 55 73) (65 72 97))
+```
