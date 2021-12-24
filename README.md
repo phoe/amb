@@ -78,4 +78,5 @@ For simple tasks and working with SICP, this `amb` implementation should be a
 decent fit.
 
 ## License
+
 MIT.
