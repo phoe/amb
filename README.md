@@ -9,6 +9,13 @@ The `amb` operator and its example use is described in detail in
 [Structure and Interpretation of Computer Programs Chapter 4.3 (Nondeterministic
 Computing)](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-28.html).
 
+## Manual
+
+See the [manual](MANUAL.md) and the [SICP test cases](test-sicp.lisp) for
+examples.
+
+## API
+
 The direct API consists of two macros, `amb` and `constrain`, which,
 respectively, bind ambiguous variables and place constraints which, if not met,
 cause the code to backtrack and select the next combination of values to try.
@@ -16,13 +23,6 @@ cause the code to backtrack and select the next combination of values to try.
 If no match is found, a warning `amb-failure` might be signaled. The `amb` stack
 for which no match was found can be retrieved from that condition via the
 `amb-failure-stack` reader function.
-
-## Manual
-
-See the [manual](MANUAL.md) and the [SICP test cases](test-sicp.lisp) for
-examples.
-
-## API
 
 * Macro **`AMB`**
   * Binds one or more ambiguous variables and establishes a dynamic
