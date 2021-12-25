@@ -132,5 +132,8 @@
               (x '(1 2 3 4 5)))
       (amb:amb ())
       (setf fallthroughp t))
+    (amb:amb ((:signalp nil)
+              (x '(1 2 3 4 5)))
+      (amb:constrain (= 0 x))
+      (setf fallthroughp t))
     (false fallthroughp)))
-

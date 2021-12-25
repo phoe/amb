@@ -47,9 +47,9 @@ does not mean that all possbible solutions are going to have equal probabilities
 of appearing; it merely randomizes the order in which the values are tried.)
 
 ```lisp
-AMB> (amb ((x (alexandria:iota 100))
-           (y (alexandria:iota 100))
-           (z (alexandria:iota 100)))
+AMB> (amb ((x (iota 100))
+           (y (iota 100))
+           (z (iota 100)))
        (constrain (< x y z))
        (list x y z))
 (0 1 2)
@@ -155,7 +155,7 @@ across all matches. We can use such a construct to generate all core Pythagorean
 triples under 100 with the following code:
 
 ```lisp
-AMB> (let ((integers (a:iota 100 :start 1))
+AMB> (let ((integers (iota 100 :start 1))
            result)
        (amb ((x integers)
              (y integers)
