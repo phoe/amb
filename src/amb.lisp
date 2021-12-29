@@ -3,7 +3,7 @@
 ;;;; Author: Michał "phoe" Herda, 2021.
 ;;;; License: MIT.
 
-(uiop:define-package #:amb
+(defpackage #:amb
   (:use #:cl)
   (:local-nicknames (#:a #:alexandria))
   (:export #:amb #:constrain #:amb-failure #:amb-failure-stack))
