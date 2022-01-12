@@ -39,8 +39,8 @@ for which no match was found can be retrieved from that condition via the
         * `shufflep`, if true, randomizes the order in which the values will be
           tried. Default behavior is no randomization.
       * Option **`:STACK`**
-        * Sets the stack for the given `amb` invocation. The default is a
-          default stack.
+        * Sets the stack for the given `amb` invocation. The default is the symbol
+          `amb-stack`, denoting the default stack.
         * Syntax: `(:stack STACK-NAME)`, where `STACK-NAME` is a
           symbol.
       * Option **`:SIGNALP`**

@@ -6,7 +6,7 @@
 (uiop:define-package #:amb
   (:use #:cl)
   (:local-nicknames (#:a #:alexandria))
-  (:export #:amb #:constrain #:amb-failure #:amb-failure-stack))
+  (:export #:amb #:amb-stack #:constrain #:amb-failure #:amb-failure-stack))
 
 (in-package #:amb)
 
