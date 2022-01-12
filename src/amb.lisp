@@ -19,8 +19,7 @@
 
 (define-condition amb-failure (simple-warning)
   ((stack :initarg :stack :reader amb-failure-stack))
-  (:report report-amb-failure)
-  (:documentation))
+  (:report report-amb-failure))
 
 (defmacro constrain (constraint &optional (stack ''amb-stack))
   `(or ,constraint (throw ',stack nil)))
