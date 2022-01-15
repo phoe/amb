@@ -19,7 +19,7 @@
   ((stack :initarg :stack :reader amb-failure-stack))
   (:report report-amb-failure))
 
-(defmacro constrain (constraint &optional (stack ''amb-stack))
+(defmacro constrain (constraint &optional (stack 'amb-stack))
   `(or ,constraint (throw ',stack nil)))
 
 (defparameter *started-ambs* '())
@@ -56,7 +56,7 @@
            (signalp-option (assoc :signalp bindings-and-options))
            (signalp (if signalp-option (second signalp-option) 'warn))
            (stack-option (assoc :stack bindings-and-options))
-           (stack (if stack-option (second stack-option) ''amb-stack)))
+           (stack (if stack-option (second stack-option) 'amb-stack)))
       (check-type signalp (member nil signal warn error))
       (generate-body bindings body stack signalp))))
 
