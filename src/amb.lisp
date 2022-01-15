@@ -10,8 +10,6 @@
 
 (in-package #:amb)
 
-(defparameter *started-ambs* '())
-
 (defun report-amb-failure (condition stream)
   (let ((stack (amb-failure-stack condition)))
     (format stream "AMB for ~:[stack ~S~;the default stack~] failed to match."
@@ -23,6 +21,8 @@
 
 (defmacro constrain (constraint &optional (stack ''amb-stack))
   `(or ,constraint (throw ',stack nil)))
+
+(defparameter *started-ambs* '())
 
 (defun generate-binding (binding body stack signalp)
   (destructuring-bind (var value &key shufflep) binding
