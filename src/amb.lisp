@@ -15,7 +15,7 @@
     (format stream "AMB for ~:[stack ~S~;the default stack~] failed to match."
             (eq stack 'amb-stack) stack)))
 
-(define-condition amb-failure (simple-warning)
+(define-condition amb-failure (warning)
   ((stack :initarg :stack :reader amb-failure-stack))
   (:report report-amb-failure))
 
