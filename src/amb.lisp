@@ -50,17 +50,21 @@
                       (,signalp 'amb-failure :stack ',stack)))
         (t `(progn))))
 
+(defvar *options* '(:stack :signalp))
+
+(defun optionp (x) (member x *options*))
+
+(defun option (bindings-and-options keyword &optional default)
+  (let ((option (assoc keyword bindings-and-options)))
+    (if option (second option) default)))
+
 (defun parse-amb (bindings-and-options body)
-  (flet ((optionp (x) (member x '(:stack :signalp)))
-         (option (keyword default)
-           (let ((option (assoc keyword bindings-and-options)))
-             (if option (second option) default))))
-    (let ((bindings (remove-if #'optionp bindings-and-options :key #'first))
-          (signalp (option :signalp 'warn))
-          (stack (option :stack 'amb-stack)))
-      (check-type signalp (member nil signal warn error))
-      (check-type stack symbol)
-      (generate-body bindings body stack signalp))))
+  (let ((bindings (remove-if #'optionp bindings-and-options :key #'first))
+        (signalp (option bindings-and-options :signalp 'warn))
+        (stack (option bindings-and-options :stack 'amb-stack)))
+    (check-type signalp (member nil signal warn error))
+    (check-type stack symbol)
+    (generate-body bindings body stack signalp)))
 
 (defmacro amb (bindings-and-options &body body)
   (parse-amb bindings-and-options body))
