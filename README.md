@@ -8,7 +8,7 @@ searching for a set of values for variables (henceforth called *ambiguous
 variables*) for which a set of constraints is satisfied. The operator and its
 example use are described in detail in
 [Structure and Interpretation of Computer Programs Chapter 4.3 (Nondeterministic
-Computing)](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-28.html).
+Computing)](https://sarabander.github.io/sicp/html/4_002e3.xhtml#g_t4_002e3).
 
 See the [manual](doc/MANUAL.md) and the [SICP test cases](t/test-sicp.lisp) for
 examples.
